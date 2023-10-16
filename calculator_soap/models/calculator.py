@@ -34,8 +34,8 @@ class Calculator(models.Model):
             }
             response = requests.request("POST", url, headers=headers, data=payload)
             res = ET.fromstring(response.content)
-            for mul_res in res:
-                children = mul_res.getchildren()
+            for add_res in res:
+                children = add_res.getchildren()
                 for result in children:
                     child = result.getchildren()
                     self.name = float(child[0].text)
@@ -56,8 +56,8 @@ class Calculator(models.Model):
             }
             response = requests.request("POST", url, headers=headers, data=payload)
             res = ET.fromstring(response.content)
-            for mul_res in res:
-                children = mul_res.getchildren()
+            for sub_res in res:
+                children = sub_res.getchildren()
                 for result in children:
                     child = result.getchildren()
                     self.name = float(child[0].text)
@@ -100,8 +100,8 @@ class Calculator(models.Model):
             }
             response = requests.request("POST", url, headers=headers, data=payload)
             res = ET.fromstring(response.content)
-            for mul_res in res:
-                children = mul_res.getchildren()
+            for div_res in res:
+                children = div_res.getchildren()
                 for result in children:
                     child = result.getchildren()
                     self.name = float(child[0].text)
