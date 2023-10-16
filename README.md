@@ -1,2 +1,2 @@
-# calculator_soap
+# Calculator
 Simple Calculator using SOAP APIs in odoo
