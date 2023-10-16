@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="calculator_tree_view" model="ir.ui.view">
+        <field name="name">calculator_tree_view</field>
+        <field name="model">calculator.calculator</field>
+        <field name="arch" type="xml">
+            <tree string="Calculator">
+                <field name="no1"/>
+                <field name="no2"/>
+                <field name="action"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="calculator_form_view" model="ir.ui.view">
+        <field name="name">calculator_form_view</field>
+        <field name="model">calculator.calculator</field>
+        <field name="arch" type="xml">
+            <form string="Calculator">
+                <header>
+                    <button type="object" name="calculate" string="Calculate"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="no1" required="1"/>
+                        <field name="no2" required="1"/>
+                        <field name="action" required="1"/>
+                        <field name="name" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="calculator_action" model="ir.actions.act_window">
+        <field name="name">Calculator</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">calculator.calculator</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="calculator_menu" name="Calculator" action="calculator_action"/>
+
+</odoo>
